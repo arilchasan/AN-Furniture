@@ -1,34 +1,45 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'navbar.dart';
+
 class splash extends StatefulWidget {
   const splash({Key? key}) : super(key: key);
 
   @override
-  State<splash> createState() => _splashState();
+  State<splash> createState() => _SplashScreenState();
 }
 
-class _splashState extends State<splash> {
+class _SplashScreenState extends State<splash> {
+  startSplashScreen() async {
+    var duration = const Duration(seconds: 5);
+    return Timer(duration, () {
+      Navigator.of(context)
+          .pushReplacement(MaterialPageRoute(builder: (context) => navbar()));
+    });
+  }
+
   @override
+  void initState() {
+    super.initState();
+    startSplashScreen();
+  }
+
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage('assets/pp.png'), 
-              fit: BoxFit.cover),
+    return MaterialApp(
+      home: Scaffold(
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        body: Center(
+          child: Container(
+            width: 1000,
+            height: 700,
+            child: Image.asset('assets/logo.png'),
+          ),
         ),
-        // child: Container(
-        //     alignment: Alignment.center,
-        //     child: const Text(
-        //       'Show text here',
-        //       style: TextStyle(
-        //           color: Colors.pink,
-        //           fontWeight: FontWeight.bold,
-        //           fontSize: 22.0),
-        //     )),
       ),
     );
   }
