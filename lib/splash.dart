@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:project_pas/intro.dart';
 
 import 'navbar.dart';
 
@@ -19,7 +20,7 @@ class _SplashScreenState extends State<splash> {
     var duration = const Duration(seconds: 5);
     return Timer(duration, () {
       Navigator.of(context)
-          .pushReplacement(MaterialPageRoute(builder: (context) => navbar()));
+          .pushReplacement(MaterialPageRoute(builder: (context) => intro()));
     });
   }
 
