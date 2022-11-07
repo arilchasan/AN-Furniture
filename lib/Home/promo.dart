@@ -30,11 +30,15 @@ class _promotionState extends State<promotion> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Text("25%", style: GoogleFonts.montserrat(fontSize: 40)),
+                  Text("25%",
+                      style: GoogleFonts.montserrat(
+                          fontSize: 40, fontWeight: FontWeight.w600)),
                   Text("Spesial Diskon!",
-                      style: GoogleFonts.montserrat(fontSize: 20)),
+                      style: GoogleFonts.montserrat(
+                          fontSize: 20, fontWeight: FontWeight.w600)),
                   Text("Dapatkan diskon hanya untuk pembelian hari ini!",
-                      style: GoogleFonts.montserrat(fontSize: 12)),
+                      style: GoogleFonts.montserrat(
+                          fontSize: 12, fontWeight: FontWeight.w500)),
                 ],
               ),
             ),
