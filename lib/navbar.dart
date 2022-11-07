@@ -3,7 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:project_pas/Cart/cartview.dart';
+import 'package:project_pas/Home/categories.dart';
 import 'package:project_pas/Home/home.dart';
+import 'package:project_pas/Models/models.dart';
+
+import 'package:project_pas/Setting/setting.dart';
 
 class navbar extends StatefulWidget {
   const navbar({Key? key}) : super(key: key);
@@ -15,8 +20,8 @@ class navbar extends StatefulWidget {
 class _homeState extends State<navbar> {
   List<Widget> _widgetOptions = <Widget>[
     home(),
-    Center(child: Text('Index 1: Cart')),
-    Center(child: Text('Index 2: Settings')),
+    cartview(),
+    Setting(),
   ];
 
   var _selectedTab = _SelectedTab.home;
@@ -37,22 +42,22 @@ class _homeState extends State<navbar> {
         child: DotNavigationBar(
           margin: EdgeInsets.only(left: 10, right: 10),
           currentIndex: _SelectedTab.values.indexOf(_selectedTab),
-          backgroundColor: Color.fromRGBO(194, 178, 128, 50),
+          backgroundColor: Color.fromARGB(175, 154, 154, 154),
           dotIndicatorColor: Color.fromARGB(246, 255, 255, 255),
           unselectedItemColor: Color.fromARGB(168, 120, 107, 69),
           onTap: _handleIndexChanged,
           items: [
             DotNavigationBarItem(
               icon: Icon(Icons.home),
-              selectedColor: Color(0xff73544C),
+              selectedColor: Color.fromRGBO(0, 0, 0, 1),
             ),
             DotNavigationBarItem(
               icon: Icon(Icons.shopping_cart_outlined),
-              selectedColor: Color(0xff73544C),
+              selectedColor: Color.fromARGB(255, 0, 0, 0),
             ),
             DotNavigationBarItem(
               icon: Icon(Icons.settings),
-              selectedColor: Color(0xff73544C),
+              selectedColor: Color.fromARGB(255, 0, 0, 0),
             ),
           ],
         ),

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:project_pas/Home/categories.dart';
 import 'package:project_pas/Home/home.dart';
-import 'package:project_pas/detail.dart';
+import 'package:project_pas/Setting/setting.dart';
+import 'package:project_pas/Detail/detail.dart';
 import 'package:project_pas/intro.dart';
 import 'package:project_pas/navbar.dart';
 import 'package:project_pas/splash.dart';
@@ -21,6 +22,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const home());
+        home: const splash());
   }
 }

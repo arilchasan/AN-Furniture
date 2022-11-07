@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_pas/Home/home.dart';
+import 'package:project_pas/navbar.dart';
 
 class intro extends StatefulWidget {
   const intro({Key? key}) : super(key: key);
@@ -22,7 +23,7 @@ class _introState extends State<intro> {
             decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage(
-                  "assets/pp.png",
+                  "assets/wp.jpg",
                 ),
                 fit: BoxFit.cover,
               ),
@@ -31,31 +32,37 @@ class _introState extends State<intro> {
                 child: Column(children: [
               /// title
               Padding(
-                padding: const EdgeInsets.fromLTRB(20, 150, 40, 50),
+                padding: const EdgeInsets.fromLTRB(10, 120, 110, 140),
                 child: Text("Temukan furnitur minimalis untuk ruanganmu",
-                    style: GoogleFonts.poppins(
-                        fontSize: 50, fontWeight: FontWeight.w500)),
+                    style: GoogleFonts.montserrat(
+                        fontSize: 40,
+                        fontWeight: FontWeight.w600,
+                        color: Color.fromARGB(255, 0, 0, 0))),
               ),
 
               /// button to navigate to home screen`
+
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => home()));
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => navbar()));
                 },
                 style: ElevatedButton.styleFrom(
+                  primary: Color.fromARGB(132, 255, 255, 255),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(48),
                   ),
                   padding: const EdgeInsets.symmetric(
                     horizontal: 35,
-                    vertical: 24,
+                    vertical: 15,
                   ),
                 ),
                 child: Text(
-                  "GET STARTED",
-                  style:
-                      GoogleFonts.montserrat(fontSize: 15, color: Colors.black),
+                  "MULAI",
+                  style: GoogleFonts.montserrat(
+                      fontSize: 15,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w400),
                 ),
               ),
             ]))));
