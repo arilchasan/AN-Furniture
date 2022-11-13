@@ -32,7 +32,7 @@ class _introState extends State<intro> {
                 child: Column(children: [
               /// title
               Padding(
-                padding: const EdgeInsets.fromLTRB(10, 120, 110, 140),
+                padding: const EdgeInsets.fromLTRB(5, 120, 110, 140),
                 child: Text("Temukan furnitur minimalis untuk ruanganmu",
                     style: GoogleFonts.montserrat(
                         fontSize: 40,

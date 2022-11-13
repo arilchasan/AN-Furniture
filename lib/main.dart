@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_pas/Home/carousel.dart';
 import 'package:project_pas/Home/categories.dart';
 import 'package:project_pas/Home/home.dart';
 import 'package:project_pas/Setting/setting.dart';
@@ -22,6 +23,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const splash());
+        home: splash());
   }
 }

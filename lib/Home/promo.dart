@@ -18,7 +18,7 @@ class _promotionState extends State<promotion> {
       height: 180,
       margin: const EdgeInsets.all(24),
       decoration: BoxDecoration(
-        color: Color.fromRGBO(154, 154, 154, 68),
+        color: Color.fromRGBO(154, 154, 154, 0.733),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Row(

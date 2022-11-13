@@ -1,3 +1,4 @@
+import 'package:colours/colours.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -28,18 +29,45 @@ class _alamatState extends State<alamat> {
         Card(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                child: Text('Rumah (Utama)',
-                    style: GoogleFonts.montserrat(
-                        fontSize: 13, fontWeight: FontWeight.bold)),
+                padding: EdgeInsets.all(8),
+                child: Row(
+                  children: [
+                    Column(
+                      children: [
+                        Text('Rumah (Utama)',
+                            style: GoogleFonts.montserrat(
+                                fontSize: 13, fontWeight: FontWeight.bold)),
+                        Text(
+                          'Aril',
+                          style: GoogleFonts.montserrat(
+                              fontSize: 13, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          '08*********',
+                          style: GoogleFonts.montserrat(
+                              fontSize: 13, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          'Besito Gang 7,Kec.Gebog,'
+                          '\nKabupaten Kudus,Jawa Tengah',
+                          style: GoogleFonts.montserrat(
+                              fontSize: 12, fontWeight: FontWeight.w600),
+                        ),
+                      ],
+                    ),
+                    Container(
+                        margin: EdgeInsets.only(left: 80),
+                        child: Icon(
+                          Icons.check,
+                          size: 30,
+                          color: Colours.green,
+                        ))
+                  ],
+                ),
               ),
-              Text(
-                'Aril',
-                textDirection: TextDirection.ltr,
-              ),
-              Text('08*********'),
-              Text('Besito Gang 7,Kec.Gebog,' '\nKabupaten Kudus,Jawa Tengah'),
             ],
           ),
         ),

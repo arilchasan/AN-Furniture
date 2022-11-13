@@ -48,6 +48,8 @@ dependencies:
   flutter_switch: ^0.3.2
   get: ^4.6.5
   colours: ^0.0.2
+  carousel_slider: ^4.1.1
+  cloud_firestore: ^0.13.0+1
 dev_dependencies:
   flutter_test:
     sdk: flutter
