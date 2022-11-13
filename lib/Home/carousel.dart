@@ -15,7 +15,6 @@ class _CarouselWithIndicatorState extends State<populerproduk> {
   final CarouselController _controller = CarouselController();
   final List<Widget> populer = [
     Container(
-      width: 400,
       height: 150,
       color: Color.fromRGBO(154, 154, 154, 10),
       child: Row(
@@ -56,7 +55,6 @@ class _CarouselWithIndicatorState extends State<populerproduk> {
       ),
     ),
     Container(
-      width: 400,
       height: 150,
       color: Color.fromRGBO(154, 154, 154, 10),
       child: Row(
@@ -97,7 +95,6 @@ class _CarouselWithIndicatorState extends State<populerproduk> {
       ),
     ),
     Container(
-      width: 400,
       height: 150,
       color: Color.fromRGBO(154, 154, 154, 10),
       child: Row(
@@ -145,6 +142,7 @@ class _CarouselWithIndicatorState extends State<populerproduk> {
     return Scaffold(
       body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         ClipRRect(
+          
           borderRadius: BorderRadius.circular(20.0),
           child: Container(
             child: CarouselSlider(
