@@ -6,6 +6,7 @@ import 'package:project_pas/Detail/detailkursi.dart';
 import 'package:project_pas/Detail/detaillemari.dart';
 import 'package:project_pas/Detail/detailmeja.dart';
 import 'package:project_pas/Detail/detailsofa.dart';
+import 'package:project_pas/Home/carousel.dart';
 import 'package:project_pas/Home/categories.dart';
 import 'package:project_pas/Home/produk.dart';
 import 'package:project_pas/Home/promo.dart';
@@ -57,6 +58,14 @@ class _homeState extends State<home> with TickerProviderStateMixin {
         child: Column(
           children: [
             const promotion(),
+            Text(
+              'Produk Populer & Baru',
+              style: GoogleFonts.montserrat(fontWeight: FontWeight.w600,fontSize: 16),
+            ),
+            SizedBox(
+              height: 210,
+              child: populerproduk(),
+            ),
             Padding(
               padding: const EdgeInsets.all(2.0),
               child: Column(
@@ -82,7 +91,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                             padding: EdgeInsets.symmetric(
                                 horizontal: 6, vertical: 8),
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
+                                borderRadius: BorderRadius.circular(15),
                                 border: Border.all(
                                   color: Color.fromRGBO(154, 154, 154, 10),
                                 )),
@@ -97,7 +106,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                             padding: EdgeInsets.symmetric(
                                 horizontal: 10, vertical: 8),
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
+                                borderRadius: BorderRadius.circular(15),
                                 border: Border.all(
                                   color: Color.fromRGBO(154, 154, 154, 10),
                                 )),
@@ -112,7 +121,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                             padding: EdgeInsets.symmetric(
                                 horizontal: 10, vertical: 8),
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
+                                borderRadius: BorderRadius.circular(15),
                                 border: Border.all(
                                   color: Color.fromRGBO(154, 154, 154, 10),
                                 )),
@@ -127,7 +136,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                             padding: EdgeInsets.symmetric(
                                 horizontal: 10, vertical: 8),
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
+                                borderRadius: BorderRadius.circular(15),
                                 border: Border.all(
                                   color: Color.fromRGBO(154, 154, 154, 10),
                                 )),
@@ -142,7 +151,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                             padding: EdgeInsets.symmetric(
                                 horizontal: 10, vertical: 8),
                             decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
+                                borderRadius: BorderRadius.circular(15),
                                 border: Border.all(
                                   color: Color.fromRGBO(154, 154, 154, 10),
                                 )),
@@ -466,6 +475,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                 ],
               ),
             ),
+            // const populer(),
           ],
         ),
       ),

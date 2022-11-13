@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:project_pas/Home/home.dart';
 import 'package:project_pas/Models/models.dart';
+import 'package:project_pas/navbar.dart';
 
 class detailkursi extends StatefulWidget {
   final KursiModel furniture;
@@ -18,13 +20,38 @@ class _detailkursiState extends State<detailkursi> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Detail'),
-        backgroundColor: Color.fromRGBO(154, 154, 154, 10),
-      ),
+      // appBar: AppBar(
+      //   title: Text('Detail'),
+      //   backgroundColor: Color.fromRGBO(154, 154, 154, 10),
+      // ),
       body: Container(
         child: Column(
           children: [
+            Padding(
+              padding: EdgeInsets.fromLTRB(4, 30, 0, 7),
+              child: Row(
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => navbar()));
+                    },
+                    icon: Icon(
+                      Icons.chevron_left,
+                      size: 35,
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(left: 120),
+                    child: Text(
+                      'Detail',
+                      style: GoogleFonts.montserrat(
+                          fontSize: 18, fontWeight: FontWeight.w600),
+                    ),
+                  )
+                ],
+              ),
+            ),
             Container(
               width: 500,
               height: 350,
@@ -42,6 +69,7 @@ class _detailkursiState extends State<detailkursi> {
                 margin: EdgeInsets.fromLTRB(20, 0, 20, 0),
                 padding: EdgeInsets.fromLTRB(10, 30, 20, 10),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(widget.furniture.name,
                         style: GoogleFonts.montserrat(
