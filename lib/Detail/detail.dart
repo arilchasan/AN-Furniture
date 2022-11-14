@@ -4,10 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:project_pas/Cart/dbhelper.dart';
 import 'package:project_pas/Home/home.dart';
 import 'package:project_pas/Home/produk.dart';
 import 'package:project_pas/Models/models.dart';
 import 'package:project_pas/navbar.dart';
+import 'package:provider/provider.dart';
+
+import '../Cart/cartprovider.dart';
 
 class Detailpage extends StatefulWidget {
   final FurnitureModel furniture;
@@ -18,8 +22,10 @@ class Detailpage extends StatefulWidget {
 }
 
 class _DetailpageState extends State<Detailpage> {
+   
   @override
   Widget build(BuildContext context) {
+  
     return Scaffold(
       // appBar: AppBar(
       //   title: Text('Detail'),
@@ -103,7 +109,7 @@ class _DetailpageState extends State<Detailpage> {
                           Spacer(),
                           ElevatedButton(
                             onPressed: () {
-                              print('Berhasil');
+                              
                             },
                             child: Text(
                               ' Keranjang',

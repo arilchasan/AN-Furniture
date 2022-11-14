@@ -5,6 +5,7 @@ import 'package:project_pas/Home/home.dart';
 import 'package:project_pas/Setting/setting.dart';
 import 'package:project_pas/Detail/detail.dart';
 import 'package:project_pas/intro.dart';
+import 'package:project_pas/login_screen/login_screen.dart';
 import 'package:project_pas/navbar.dart';
 import 'package:project_pas/splash.dart';
 

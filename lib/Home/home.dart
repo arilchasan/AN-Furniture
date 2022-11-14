@@ -21,6 +21,7 @@ class home extends StatefulWidget {
 }
 
 class _homeState extends State<home> with TickerProviderStateMixin {
+  
   Icon cusIcon = Icon(Icons.search, size: 30, color: Colors.black);
   Widget textSearch = Text("");
   @override

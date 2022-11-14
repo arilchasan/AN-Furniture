@@ -142,7 +142,6 @@ class _CarouselWithIndicatorState extends State<populerproduk> {
     return Scaffold(
       body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         ClipRRect(
-          
           borderRadius: BorderRadius.circular(20.0),
           child: Container(
             child: CarouselSlider(
@@ -168,7 +167,7 @@ class _CarouselWithIndicatorState extends State<populerproduk> {
               child: Container(
                 width: 10.0,
                 height: 10.0,
-                margin: EdgeInsets.symmetric(horizontal: 2, vertical: 2),
+                margin: EdgeInsets.symmetric(horizontal: 2, vertical: 8),
                 decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: (Theme.of(context).brightness == Brightness.dark
