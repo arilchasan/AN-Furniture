@@ -5,6 +5,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_pas/intro.dart';
+import 'package:project_pas/login_screen/login_screen.dart';
 
 import 'navbar.dart';
 
@@ -20,7 +21,7 @@ class _SplashScreenState extends State<splash> {
     var duration = const Duration(seconds: 5);
     return Timer(duration, () {
       Navigator.of(context)
-          .pushReplacement(MaterialPageRoute(builder: (context) => intro()));
+          .pushReplacement(MaterialPageRoute(builder: (context) => LoginScreen()));
     });
   }
 

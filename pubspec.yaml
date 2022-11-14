@@ -29,9 +29,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  line_awesome_flutter: ^1.0.1
+  line_awesome_flutter: ^2.0.0
   flutter_screenutil: ^5.5.4
-  animated_theme_switcher: ^1.0.5
+  animated_theme_switcher: ^2.0.7
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -49,7 +49,15 @@ dependencies:
   get: ^4.6.5
   colours: ^0.0.2
   carousel_slider: ^4.1.1
-  cloud_firestore: ^0.13.0+1
+  cloud_firestore: ^4.0.5
+  shared_preferences: ^2.0.15
+  path_provider: ^2.0.10
+  sqflite: ^2.0.2+1
+  badges: ^2.0.2
+  provider: ^6.0.3
+  dropdown_button2: ^1.8.9
+  ionicons: ^0.1.2
+  animations: ^2.0.7
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -40,6 +40,14 @@ class _homeState extends State<navbar> {
       bottomNavigationBar: Padding(
         padding: EdgeInsets.only(bottom: 5),
         child: DotNavigationBar(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.2),
+              spreadRadius: 1,
+              blurRadius: 10,
+              offset: Offset(0, 0),
+            ),
+          ],
           margin: EdgeInsets.only(left: 10, right: 10),
           currentIndex: _SelectedTab.values.indexOf(_selectedTab),
           backgroundColor: Color.fromARGB(175, 154, 154, 154),
