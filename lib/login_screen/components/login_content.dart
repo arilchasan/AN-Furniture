@@ -141,13 +141,13 @@ class _LoginContentState extends State<LoginContent>
         Ionicons.mail_outline,
       ),
       inputFieldPassword('Password', Ionicons.lock_closed_outline),
-      singUpButton('Sign Up'),
+      singUpButton('Daftar'),
     ];
 
     loginContent = [
       inputField('Email', Ionicons.mail_outline),
       inputFieldPassword('Password', Ionicons.lock_closed_outline),
-      loginButton('Log In'),
+      loginButton('Masuk'),
     ];
 
     ChangeScreenAnimation.initialize(

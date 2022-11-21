@@ -1,3 +1,7 @@
+import 'dart:convert';
+
+import 'package:flutter/widgets.dart';
+
 class FurnitureModel {
   late final String name;
   final String assets;
@@ -13,12 +17,39 @@ class FurnitureModel {
     required this.desc,
   });
 
-  Map<String, dynamic> toJson() => {
-        "name": name,
-        "assets": assets,
-        "harga": harga,
-        "desc": desc,
-      };
+  // static FurnitureModel fromJson(Map<String, Object? json>) => FurnitureModel(
+  //   name: json(FurnitureModel.name) as String,
+  //   assets: json(FurnitureModel.assets) as String,
+  //   harga: json(FurnitureModel.harga) as String,
+  //   desc: json(FurnitureModel.desc) as String,
+  // );
+
+  // Map<String, Object?> toJson() => {
+  //       FurnitureModel.name: name
+  //     };
+}
+
+class CartNotifier extends ChangeNotifier {
+  List<FurnitureModel> selectedProducts = [];
+
+  List<String> selectedProductsIds = [];
+
+  List<String> selectedProductsPrice = [];
+
+  addToCart({required FurnitureModel product}) {
+    if (selectedProductsIds.contains(product.name)) {
+      selectedProducts.remove(product);
+      selectedProductsIds.remove(product.name);
+      selectedProductsPrice.remove(product.harga);
+      notifyListeners();
+    } else {
+      selectedProducts.add(product);
+      selectedProductsIds.add(product.name);
+      selectedProductsPrice.add(product.harga);
+      notifyListeners();
+    }
+    ;
+  }
 }
 
 List<FurnitureModel> anFurniture = [

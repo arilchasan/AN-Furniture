@@ -283,7 +283,7 @@ packages:
     source: hosted
     version: "5.0.6"
   http:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: http
       url: "https://pub.dartlang.org"
@@ -388,7 +388,7 @@ packages:
     source: hosted
     version: "1.0.0"
   path:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: path
       url: "https://pub.dartlang.org"
@@ -492,6 +492,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "6.0.4"
+  rflutter_alert:
+    dependency: "direct main"
+    description:
+      name: rflutter_alert
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.4"
   shared_preferences:
     dependency: "direct main"
     description:

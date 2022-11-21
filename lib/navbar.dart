@@ -1,3 +1,4 @@
+import 'package:colours/colours.dart';
 import 'package:dot_navigation_bar/dot_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -52,7 +53,7 @@ class _homeState extends State<navbar> {
           currentIndex: _SelectedTab.values.indexOf(_selectedTab),
           backgroundColor: Color.fromARGB(175, 154, 154, 154),
           dotIndicatorColor: Color.fromARGB(246, 255, 255, 255),
-          unselectedItemColor: Color.fromARGB(168, 120, 107, 69),
+          unselectedItemColor: Colours.dimGrey,
           onTap: _handleIndexChanged,
           items: [
             DotNavigationBarItem(
