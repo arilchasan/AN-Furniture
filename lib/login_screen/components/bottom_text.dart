@@ -45,15 +45,15 @@ class _BottomTextState extends State<BottomText> {
           child: RichText(
             text: TextSpan(
               style: const TextStyle(
-                fontSize: 16,
+                fontSize: 14,
                 fontFamily: 'Montserrat',
               ),
               children: [
                 TextSpan(
                   text: ChangeScreenAnimation.currentScreen ==
                           Screens.createAccount
-                      ? 'Already have an account? '
-                      : 'Don\'t have an account? ',
+                      ? 'Sudah punya Akun? '
+                      : 'Belum Punya Akun? ',
                   style: const TextStyle(
                     color: Color.fromARGB(255, 0, 0, 0),
                     fontWeight: FontWeight.w600,
@@ -62,8 +62,8 @@ class _BottomTextState extends State<BottomText> {
                 TextSpan(
                   text: ChangeScreenAnimation.currentScreen ==
                           Screens.createAccount
-                      ? 'Log In'
-                      : 'Sign Up',
+                      ? 'Masuk'
+                      : 'Daftar',
                   style: const TextStyle(
                     color: Color.fromARGB(255, 0, 0, 0),
                     fontWeight: FontWeight.bold,

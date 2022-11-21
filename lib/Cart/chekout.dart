@@ -5,6 +5,10 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_pas/Models/models.dart';
+import 'package:project_pas/Setting/alert.dart';
+import 'package:project_pas/load.dart';
+import 'package:project_pas/navbar.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 class checkout extends StatefulWidget {
   const checkout({Key? key}) : super(key: key);
@@ -21,9 +25,8 @@ class _checkoutState extends State<checkout> {
     'Bank BRI',
   ];
   String? selectedValue;
-  
+
   @override
-  
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -160,32 +163,59 @@ class _checkoutState extends State<checkout> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Rincian Pembayaran'),
+                Text('Rincian Pembayaran',
+                    style: GoogleFonts.montserrat(
+                        fontSize: 14, fontWeight: FontWeight.w600)),
                 Row(
                   children: [
-                    Text('Subtotal untuk produk'),
+                    Text('Subtotal untuk produk',
+                        style: GoogleFonts.montserrat(
+                            fontSize: 13, fontWeight: FontWeight.w600)),
                     Spacer(),
-                    Text('Rp 2.499.000'),
+                    Text('Rp 2.499.000',
+                        style: GoogleFonts.montserrat(
+                            fontSize: 13, fontWeight: FontWeight.w600)),
                   ],
                 ),
                 Row(
                   children: [
-                    Text('Subtotal pengiriman'),
+                    Text('Subtotal pengiriman',
+                        style: GoogleFonts.montserrat(
+                            fontSize: 13, fontWeight: FontWeight.w600)),
                     Spacer(),
-                    Text('Rp 12.000'),
+                    Text('Rp 12.000',
+                        style: GoogleFonts.montserrat(
+                            fontSize: 13, fontWeight: FontWeight.w600)),
                   ],
                 ),
                 Row(
                   children: [
-                    Text('Total Pembayaran'),
+                    Text('Total Pembayaran',
+                        style: GoogleFonts.montserrat(
+                            fontSize: 13, fontWeight: FontWeight.w600)),
                     Spacer(),
-                    Text('Rp 2.511.000'),
+                    Text('Rp 2.511.000',
+                        style: GoogleFonts.montserrat(
+                            fontSize: 13, fontWeight: FontWeight.w600)),
                   ],
                 ),
               ],
             ),
           ),
         ),
+        Container(
+          width: 150,
+          height: 40,
+          child: ElevatedButton(
+            onPressed: () {
+              // Navigator.of(context).pop();
+              sweatAlert(context);
+            },
+            child: Text('Pesan Sekarang'),
+            style: ElevatedButton.styleFrom(primary: Colours.darkGrey),
+          ),
+        ),
+
         // Card(
         //   child: Row(
         //     children: [
@@ -200,9 +230,28 @@ class _checkoutState extends State<checkout> {
         // )
       ]),
     );
+  }
 
-    
+  void sweatAlert(BuildContext context) {
+    Alert(
+      context: context,
+      type: AlertType.success,
+      title: "Pembayaran berhasil",
+      desc: "Pembayaran sedang di Proses",
+      buttons: [
+        DialogButton(
+          color: Colours.blueGrey,
+          child: Text(
+            "Selanjutnya",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 14,
+            ),
+          ),
+          onPressed: () => Navigator.push(
+              context, MaterialPageRoute(builder: (context) => load())),
+        )
+      ],
+    ).show();
   }
 }
-
-

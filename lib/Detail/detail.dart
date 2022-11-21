@@ -4,12 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:project_pas/Cart/cartview.dart';
 import 'package:project_pas/Cart/dbhelper.dart';
 import 'package:project_pas/Home/home.dart';
 import 'package:project_pas/Home/produk.dart';
 import 'package:project_pas/Models/models.dart';
 import 'package:project_pas/navbar.dart';
 import 'package:provider/provider.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 import '../Cart/cartprovider.dart';
 
@@ -22,10 +24,12 @@ class Detailpage extends StatefulWidget {
 }
 
 class _DetailpageState extends State<Detailpage> {
-   
   @override
   Widget build(BuildContext context) {
-  
+    // CartNotifier cartNotifier({required bool renderUI}) =>
+    //       Provider.of<CartNotifier>(context, listen: renderUI);
+    // bool containsInCart({required String name}) =>
+    //       cartNotifier(renderUI: true).selectedProductsIds.contains(name);
     return Scaffold(
       // appBar: AppBar(
       //   title: Text('Detail'),
@@ -109,7 +113,7 @@ class _DetailpageState extends State<Detailpage> {
                           Spacer(),
                           ElevatedButton(
                             onPressed: () {
-                              
+                              sweatAlert(context);
                             },
                             child: Text(
                               ' Keranjang',
@@ -137,5 +141,26 @@ class _DetailpageState extends State<Detailpage> {
         ),
       ),
     );
+  }
+
+  void sweatAlert(BuildContext context) {
+    Alert(
+      context: context,
+      type: AlertType.success,
+      title: "Berhasil ditambahkan ke Keranjang",
+      buttons: [
+        DialogButton(
+          color: Colours.blueGrey,
+          child: Text(
+            "Tutup",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 14,
+            ),
+          ),
+          onPressed: () => Navigator.pop(context, true),
+        ),
+      ],
+    ).show();
   }
 }

@@ -1,3 +1,4 @@
+import 'package:colours/colours.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -21,7 +22,6 @@ class home extends StatefulWidget {
 }
 
 class _homeState extends State<home> with TickerProviderStateMixin {
-  
   Icon cusIcon = Icon(Icons.search, size: 30, color: Colors.black);
   Widget textSearch = Text("");
   @override
@@ -61,7 +61,8 @@ class _homeState extends State<home> with TickerProviderStateMixin {
             const promotion(),
             Text(
               'Produk Populer & Baru',
-              style: GoogleFonts.montserrat(fontWeight: FontWeight.w600,fontSize: 16),
+              style: GoogleFonts.montserrat(
+                  fontWeight: FontWeight.w600, fontSize: 16),
             ),
             SizedBox(
               height: 210,
@@ -79,7 +80,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                         controller: _tabController,
                         isScrollable: true,
                         labelColor: Color.fromARGB(156, 0, 0, 0),
-                        unselectedLabelColor: Color.fromARGB(160, 106, 92, 49),
+                        unselectedLabelColor: Colours.slateGrey,
                         indicator: UnderlineTabIndicator(
                             borderSide: BorderSide(
                               width: 2.0,
