@@ -170,33 +170,33 @@ class _checkoutState extends State<checkout> {
                   children: [
                     Text('Subtotal untuk produk',
                         style: GoogleFonts.montserrat(
-                            fontSize: 13, fontWeight: FontWeight.w600)),
+                            fontSize: 13, fontWeight: FontWeight.w400)),
                     Spacer(),
                     Text('Rp 2.499.000',
                         style: GoogleFonts.montserrat(
-                            fontSize: 13, fontWeight: FontWeight.w600)),
+                            fontSize: 13, fontWeight: FontWeight.w400)),
                   ],
                 ),
                 Row(
                   children: [
                     Text('Subtotal pengiriman',
                         style: GoogleFonts.montserrat(
-                            fontSize: 13, fontWeight: FontWeight.w600)),
+                            fontSize: 13, fontWeight: FontWeight.w400)),
                     Spacer(),
                     Text('Rp 12.000',
                         style: GoogleFonts.montserrat(
-                            fontSize: 13, fontWeight: FontWeight.w600)),
+                            fontSize: 13, fontWeight: FontWeight.w400)),
                   ],
                 ),
                 Row(
                   children: [
                     Text('Total Pembayaran',
                         style: GoogleFonts.montserrat(
-                            fontSize: 13, fontWeight: FontWeight.w600)),
+                            fontSize: 14, fontWeight: FontWeight.w600)),
                     Spacer(),
                     Text('Rp 2.511.000',
                         style: GoogleFonts.montserrat(
-                            fontSize: 13, fontWeight: FontWeight.w600)),
+                            fontSize: 14, fontWeight: FontWeight.w600)),
                   ],
                 ),
               ],
@@ -204,6 +204,7 @@ class _checkoutState extends State<checkout> {
           ),
         ),
         Container(
+          margin: EdgeInsets.only(top: 20),
           width: 150,
           height: 40,
           child: ElevatedButton(

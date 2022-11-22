@@ -1,11 +1,13 @@
+// import 'package:project_pas/Cart/cartmodel.dart';
+// import 'package:project_pas/Models/models.dart';
 // import 'package:sqflite/sqflite.dart';
 // import 'package:path/path.dart';
 
-// class FavDatabase {
-//   static final FavDatabase instance = FavDatabase.init();
+// class Cartdb {
+//   static final Cartdb instance = Cartdb.init();
 //   static Database? _database;
 
-//   FavDatabase.init();
+//   Cartdb.init();
 
 //   Future<Database> get database async {
 //     if (_database != null) return _database!;
@@ -25,21 +27,17 @@
 //     final idType = 'INTEGER PRIMARY KEY AUTOINCREMENT';
 //     final textType = 'TEXT NOT NULL';
 
-//     await db.execute('''CREATE TABLE $tableCart (
-//     ${Favorite.id} $idType,
-//     ${Favorite.image} $textType,
-//     ${Favorite.name} $textType,
-//     ${Favorite.nick} $textType,
-//     ${Favorite.since} $textType
-    
-    
+//     await db.execute('''CREATE TABLE $cart (
+//     ${FurnitureClass.name} $idType,
+//     ${FurnitureClass.harga} $textType,
+//     ${FurnitureClass.assets} $textType,
 //     )''');
 //   }
 
-//   Future<FavoriteModel> create(FavoriteModel news) async {
+//   Future<FurnitureClass> create(FurnitureClass news) async {
 //     final db = await instance.database;
 
-//     final id = await db.insert(tableFavorite, news.toJson());
+//     final id = await db.insert(tableCart, news.toJson());
 //     return news.copy(id: id);
 //   }
 
@@ -47,9 +45,9 @@
 //     final db = await instance.database;
 
 //     final maps = await db.query(
-//       tableFavorite,
-//       columns: Favorite.values,
-//       where: '${Favorite.name} = ?',
+//       tableCart,
+//       columns: FurnitureClass.values,
+//       where: '${FurnitureClass.name} = ?',
 //       whereArgs: [name],
 //     );
 
@@ -60,10 +58,10 @@
 //     }
 //   }
 
-//   Future<List<FavoriteModel>> readAll() async {
+//   Future<List<FurnitureClass>> readAll() async {
 //     final db = await instance.database;
 
-//     final result = await db.query(tableFavorite);
+//     final result = await db.query(tableCart);
 
 //     return result.map((json) => FavoriteModel.fromJson(json)).toList();
 //   }
@@ -72,8 +70,8 @@
 //     final db = await instance.database;
 //     try {
 //       await db.delete(
-//         tableFavorite,
-//         where: '${Favorite.name} = ?',
+//         tableCart,
+//         where: '${FurnitureClass.name} = ?',
 //         whereArgs: [name],
 //       );
 //     } catch (e) {
@@ -81,19 +79,17 @@
 //     }
 //   }
 
-//   update(FavoriteModel favmodel) async {
+//   update(FurnitureClass favmodel) async {
 //     final db = await instance.database;
 //     try {
 //       db.rawUpdate('''
 //     UPDATE ${tableFavorite} 
-//     SET ${Favorite.name} = ?, ${Favorite.image} = ?, ${Favorite.name} = ?, ${Favorite.nick} = ?, ${Favorite.since} = ?, 
-//     WHERE ${Favorite.id} = ?
+//     SET ${FurnitureClass.name} = ?, ${FurnitureClass.assets} = ?, ${FurnitureClass.harga} = ?, 
+//     WHERE ${FurnitureClass.name} = ?
 //     ''', [
-//         favmodel.name,
-//         favmodel.image,
-//         favmodel.nick,
-//         favmodel.since,
-//         favmodel.id
+//         FurnitureClass.name,
+//         FurnitureClass.assets,
+//         FurnitureClass.harga,
 //       ]);
 //     } catch (e) {
 //       print('error: ' + e.toString());
