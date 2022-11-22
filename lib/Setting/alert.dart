@@ -19,7 +19,8 @@ class AlertDialogs {
           title: Text(title),
           content: Text(body),
           actions: <Widget>[
-            FlatButton(
+            
+            TextButton(
               onPressed: () => Navigator.of(context).pop(DialogsAction.cancel),
               child: Text(
                 'Cancel',
@@ -27,7 +28,7 @@ class AlertDialogs {
                     color: Color(0xFFC41A3B), fontWeight: FontWeight.bold),
               ),
             ),
-            FlatButton(
+            TextButton(
               onPressed: () {
                 SystemNavigator.pop();
               },

@@ -1,65 +1,92 @@
-// import 'package:project_pas/Cart/cartmodel.dart';
-// import 'package:project_pas/Models/models.dart';
-// import 'package:sqflite/sqflite.dart';
-// import 'package:path_provider/path_provider.dart';
+// import 'dart:math';
+
 // import 'package:path/path.dart';
-// import 'dart:io' as io;
+// import 'package:project_pas/Cart/cartmodel.dart';
+// import 'package:sqflite/sqflite.dart';
 
+// class Cartdatabase {
+//   static final Cartdatabase instance = Cartdatabase.init();
 
-// class DBHelper {
+//   static Database? _database;
 
-//   static Database? _db ;
+//   Cartdatabase.init();
 
-//   Future<Database?> get db async {
-//     if(_db != null){
-//       return _db!;
+//   Future<Database> get database async {
+//     if (_database != null) return _database!;
+
+//     _database = await _initDB('cart.db');
+//     return _database!;
+//   }
+
+//   Future<Database> _initDB(String filePath) async {
+//     final dbPath = await getDatabasesPath();
+//     final path = join(dbPath, filePath);
+
+//     return await openDatabase(path, version: 1, onCreate: _createDB);
+//   }
+
+//   // create database
+//   Future _createDB(Database db, int version) async {
+//     final idType = 'INTEGER PRIMARY KEY AUTOINCREMENT';
+//     final textType = 'TEXT NOT NULL';
+
+//     // creating table
+//     await db.execute('''
+//     CREATE TABLE ${FurnitureClass.cart_}(
+//     ${FurnitureClass.id} $idType,
+//     ${FurnitureClass.name} $textType,
+//     ${FurnitureClass.assets} $textType,
+//     ${FurnitureClass.harga} $textType
+//     )
+//     ''');
+//   }
+
+//   // add data into dqatabase
+//   Future<int> create(FurnitureClass model) async {
+//     Database db = await instance.database;
+//     final query = await db.insert(FurnitureClass.cart_,model.toMap());
+
+//     return query;
+//   }
+
+//   // to read and dsiplay the data from database
+//   Future<List> readAll() async {
+//     Database db = await instance.database;
+
+//     final data = await db.query(FurnitureClass.cart_);
+//     List<dynamic> result = data.map((e) => FurnitureClass.fromMap(e)).toList();
+
+//     return result;
+//   }
+
+//   Future<bool> read(String? title) async {
+//     final db = await instance.database;
+
+//     final maps = await db.query(
+//       FurnitureClass.cart_,
+//       columns: FurnitureClass.values,
+//       where: '${FurnitureClass.name} = ?',
+//       whereArgs: [title],
+//     );
+
+//     if (maps.isNotEmpty) {
+//       return true;
+//     } else {
+//       return false;
 //     }
-
-//     _db = await initDatabase();
 //   }
 
-//   initDatabase()async{
-//     io.Directory documentDirectory = await getApplicationDocumentsDirectory() ;
-//     String path = join(documentDirectory.path , 'cart.db');
-//     var db = await openDatabase(path , version: 1 , onCreate: _onCreate,);
-//     return db ;
+//   delete(String nama) async {
+//     Database db = await instance.database;
+
+//     await db.delete(FurnitureClass.cart_,
+//         where: "${FurnitureClass.name} = ?", whereArgs: [nama]);
 //   }
 
-//   _onCreate (Database db , int version )async{
-//     await db
-//         .execute('CREATE TABLE cart (id INTEGER PRIMARY KEY , productId VARCHAR UNIQUE,productName TEXT,initialPrice INTEGER, productPrice INTEGER , quantity INTEGER, unitTag TEXT , image TEXT )');
-//   }
+//   // to delete data from database
+//   deleteTable(String table) async {
+//     Database db = await instance.database;
 
-//   Future<FurnitureModel> insert(FurnitureModel cart)async{
-//     print(cart.toMap());
-//     var dbClient = await db ;
-//     await dbClient!.insert('cart', cart.toMap());
-//     return cart ;
-//   }
-
-//   Future<List<FurnitureModel>> getCartList()async{
-//     var dbClient = await db ;
-//     final List<Map<String , Object?>> queryResult =  await dbClient!.query('cart');
-//     return queryResult.map((e) => FurnitureModel.fromMap(e)).toList();
-
-//   }
-
-//   Future<int> delete(int id)async{
-//     var dbClient = await db ;
-//     return await dbClient!.delete(
-//       'cart',
-//       where: 'id = ?',
-//       whereArgs: [id]
-//     );
-//   }
-
-//   Future<int> updateQuantity(FurnitureModel cart)async{
-//     var dbClient = await db ;
-//     return await dbClient!.update(
-//         'cart',
-//         cart.toMap(),
-//         where: 'id = ?',
-//         whereArgs: [cart.productName]
-//     );
+//     await db.execute("DROP TABLE IF EXSIST $table");
 //   }
 // }

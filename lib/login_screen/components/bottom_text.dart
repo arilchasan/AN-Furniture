@@ -56,7 +56,7 @@ class _BottomTextState extends State<BottomText> {
                       : 'Belum Punya Akun? ',
                   style: const TextStyle(
                     color: Color.fromARGB(255, 0, 0, 0),
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
                 TextSpan(

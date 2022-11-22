@@ -1,36 +1,72 @@
-// import 'package:flutter/cupertino.dart';
-// import 'package:path_provider/path_provider.dart';
-// import 'package:sqflite/sqflite.dart';
-// import 'package:sqflite/sqlite_api.dart';
+// import 'package:project_pas/Models/models.dart';
 
-// class Cart {
-//   final String? productName;
-//   final int? initialPrice;
-//   final int? productPrice;
-//   final ValueNotifier<int>? quantity;
-//   final String? image;
+// class FurnitureClass {
+//   static final List<String> values = [id, name, assets, harga];
 
-//   Cart(
-//       {required this.productName,
-//       required this.initialPrice,
-//       required this.productPrice,
-//       required this.quantity,
-//       required this.image});
+//   // table name
+//   static const cart_ = 'cart';
 
-//   Cart.fromMap(Map<dynamic, dynamic> data)
-//       : productName = data['productName'],
-//         initialPrice = data['initialPrice'],
-//         productPrice = data['productPrice'],
-//         quantity = ValueNotifier(data['quantity']),
-//         image = data['image'];
+//   // column
+//   static final String id = 'id';
+//   static final String name = 'nama';
+//   static final String assets = 'assets';
+//   static final String harga = 'harga';
 
-//   Map<String, dynamic> toMap() {
-//     return {
-//       'productName': productName,
-//       'initialPrice': initialPrice,
-//       'productPrice': productPrice,
-//       'quantity': quantity?.value,
-//       'image': image,
-//     };
-//   }
+//   static fromMap(Map<String, Object?> e) {}
 // }
+
+// // column model
+// class FurnitureCart {
+//   final int? id;
+//   final String? name;
+//   final String? assets;
+//   final String? harga;
+
+//   FurnitureCart({
+//     this.id,
+//     this.name,
+//     required this.assets,
+//     this.harga,
+//   });
+
+//   factory FurnitureCart.fromMap(Map<String, dynamic> json) {
+//     return FurnitureCart(
+//       id: json['id'] as int?,
+//       name: json['name'] as String?,
+//       assets: json['assets'] as String?,
+//       harga: json['harga'] as String?,
+//     );
+//   }
+
+//   Map<String, dynamic> toMap() => {
+//         FurnitureClass.id: id,
+//         FurnitureClass.name: name,
+//         FurnitureClass.assets: assets,
+//         FurnitureClass.harga: harga,
+//       };
+// }
+
+//  FurnitureModel fromJson(Map<String, Object?> json) => FurnitureModel(
+//       name: json[FurnitureClass.name] as String,
+//       assets: json[FurnitureClass.assets] as String, 
+//       harga: json[FurnitureClass.harga] as String, desc: '', 
+    
+//       );
+      
+//  Map<String, Object?> toJson() => {
+//         FurnitureClass.name:name,
+//         FurnitureClass.assets:assets,
+//         FurnitureClass.harga:harga,
+//       };
+
+//       FurnitureCart copy(
+//           {
+//           String? name,
+//           String? assets,
+//           String? harga,
+//           }) =>
+//       FurnitureCart(
+//           name: name ?? this.name,
+//           assets: assets ?? this.assets,
+//           harga: harga ?? this.harga,
+//           );

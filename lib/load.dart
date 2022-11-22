@@ -18,7 +18,7 @@ class load extends StatefulWidget {
 
 class _LoadScreenState extends State<load> {
   startSplashScreen() async {
-    var duration = const Duration(seconds: 2);
+    var duration = const Duration(seconds: 3);
     return Timer(duration, () {
       Navigator.of(context)
           .pushReplacement(MaterialPageRoute(builder: (context) => navbar()));

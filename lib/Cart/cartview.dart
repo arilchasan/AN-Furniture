@@ -8,6 +8,7 @@ import 'package:project_pas/Models/models.dart';
 import 'package:project_pas/Models/models.dart';
 import 'package:project_pas/Models/models.dart';
 import 'package:provider/provider.dart';
+import 'package:quantity_input/quantity_input.dart';
 
 import '../Models/models.dart';
 import '../Models/models.dart';
@@ -22,13 +23,9 @@ class cartview extends StatefulWidget {
 }
 
 class _cartviewState extends State<cartview> {
+  int simpleIntInput = 1;
   @override
   Widget build(BuildContext context) {
-    //   CartNotifier cartNotifier({required bool renderUI}) =>
-    //       Provider.of<CartNotifier>(context, listen: renderUI);
-
-    // List<FurnitureModel> _products = cartNotifier(renderUI: true).selectedProducts;
-
     return Scaffold(
       body: ListView.builder(
           itemCount: sofa.length,

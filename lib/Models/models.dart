@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/widgets.dart';
 
 class FurnitureModel {
+  
   late final String name;
   final String assets;
   final String harga;
@@ -29,28 +30,28 @@ class FurnitureModel {
   //     };
 }
 
-class CartNotifier extends ChangeNotifier {
-  List<FurnitureModel> selectedProducts = [];
+// class CartNotifier extends ChangeNotifier {
+//   List<FurnitureModel> selectedProducts = [];
 
-  List<String> selectedProductsIds = [];
+//   List<String> selectedProductsIds = [];
 
-  List<String> selectedProductsPrice = [];
+//   List<String> selectedProductsPrice = [];
 
-  addToCart({required FurnitureModel product}) {
-    if (selectedProductsIds.contains(product.name)) {
-      selectedProducts.remove(product);
-      selectedProductsIds.remove(product.name);
-      selectedProductsPrice.remove(product.harga);
-      notifyListeners();
-    } else {
-      selectedProducts.add(product);
-      selectedProductsIds.add(product.name);
-      selectedProductsPrice.add(product.harga);
-      notifyListeners();
-    }
-    ;
-  }
-}
+//   addToCart({required FurnitureModel product}) {
+//     if (selectedProductsIds.contains(product.name)) {
+//       selectedProducts.remove(product);
+//       selectedProductsIds.remove(product.name);
+//       selectedProductsPrice.remove(product.harga);
+//       notifyListeners();
+//     } else {
+//       selectedProducts.add(product);
+//       selectedProductsIds.add(product.name);
+//       selectedProductsPrice.add(product.harga);
+//       notifyListeners();
+//     }
+//     ;
+//   }
+// }
 
 List<FurnitureModel> anFurniture = [
   FurnitureModel(

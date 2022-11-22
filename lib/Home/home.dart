@@ -168,313 +168,316 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                 ],
               ),
             ),
-            Container(
-              width: 375,
-              height: 750,
-              child: TabBarView(
-                controller: _tabController,
-                children: [
-                  produk(),
-                  GridView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              mainAxisSpacing: 10,
-                              crossAxisSpacing: 8,
-                              childAspectRatio: 3 / 3),
-                      padding: EdgeInsets.all(24),
-                      itemCount: sofa.length,
-                      itemBuilder: (context, index) {
-                        final _sofa = sofa[index];
-                        return InkWell(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        detailsofa(furniture: _sofa)));
-                          },
-                          borderRadius: BorderRadius.circular(14),
-                          child: Card(
-                            color: Color.fromARGB(68, 154, 154, 154),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            child: Column(
-                              children: [
-                                Container(
-                                  margin: EdgeInsets.all(5),
-                                  height: 100,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
-                                    image: DecorationImage(
-                                      image: AssetImage(
-                                        _sofa.assets,
+            SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: Container(
+                width: 380,
+                height: 750,
+                child: TabBarView(
+                  controller: _tabController,
+                  children: [
+                    produk(),
+                    GridView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                mainAxisSpacing: 10,
+                                crossAxisSpacing: 8,
+                                childAspectRatio: 3 / 3),
+                        padding: EdgeInsets.all(24),
+                        itemCount: sofa.length,
+                        itemBuilder: (context, index) {
+                          final _sofa = sofa[index];
+                          return InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          detailsofa(furniture: _sofa)));
+                            },
+                            borderRadius: BorderRadius.circular(14),
+                            child: Card(
+                              color: Color.fromARGB(68, 154, 154, 154),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    margin: EdgeInsets.all(5),
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                          _sofa.assets,
+                                        ),
+                                        fit: BoxFit.contain,
                                       ),
-                                      fit: BoxFit.contain,
                                     ),
                                   ),
-                                ),
-                                Expanded(
-                                    child: Row(
-                                  children: [
-                                    Container(
-                                      padding: EdgeInsets.all(5),
-                                    ),
-                                    Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            _sofa.name,
-                                            style: GoogleFonts.montserrat(
-                                                fontWeight: FontWeight.w600,
-                                                fontSize: 14),
-                                          ),
-                                          Text(
-                                            "Rp " + _sofa.harga,
-                                            style: GoogleFonts.montserrat(
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.w500),
-                                          ),
-                                        ]),
-                                  ],
-                                ))
-                              ],
-                            ),
-                          ),
-                        );
-                      }),
-                  GridView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              mainAxisSpacing: 10,
-                              crossAxisSpacing: 8,
-                              childAspectRatio: 3 / 3),
-                      padding: EdgeInsets.all(24),
-                      itemCount: lemari.length,
-                      itemBuilder: (context, index) {
-                        final _lemari = lemari[index];
-                        return InkWell(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => detaillemari(
-                                          furniture: _lemari,
-                                        )));
-                          },
-                          borderRadius: BorderRadius.circular(14),
-                          child: Card(
-                            color: Color.fromARGB(68, 154, 154, 154),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            child: Column(
-                              children: [
-                                Container(
-                                  margin: EdgeInsets.all(5),
-                                  height: 100,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
-                                    image: DecorationImage(
-                                      image: AssetImage(
-                                        _lemari.assets,
+                                  Expanded(
+                                      child: Row(
+                                    children: [
+                                      Container(
+                                        padding: EdgeInsets.all(5),
                                       ),
-                                      fit: BoxFit.contain,
+                                      Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              _sofa.name,
+                                              style: GoogleFonts.montserrat(
+                                                  fontWeight: FontWeight.w600,
+                                                  fontSize: 14),
+                                            ),
+                                            Text(
+                                              "Rp " + _sofa.harga,
+                                              style: GoogleFonts.montserrat(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w500),
+                                            ),
+                                          ]),
+                                    ],
+                                  ))
+                                ],
+                              ),
+                            ),
+                          );
+                        }),
+                    GridView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                mainAxisSpacing: 10,
+                                crossAxisSpacing: 8,
+                                childAspectRatio: 3 / 3),
+                        padding: EdgeInsets.all(24),
+                        itemCount: lemari.length,
+                        itemBuilder: (context, index) {
+                          final _lemari = lemari[index];
+                          return InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => detaillemari(
+                                            furniture: _lemari,
+                                          )));
+                            },
+                            borderRadius: BorderRadius.circular(14),
+                            child: Card(
+                              color: Color.fromARGB(68, 154, 154, 154),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    margin: EdgeInsets.all(5),
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                          _lemari.assets,
+                                        ),
+                                        fit: BoxFit.contain,
+                                      ),
                                     ),
                                   ),
-                                ),
-                                Expanded(
-                                    child: Row(
-                                  children: [
-                                    Container(
-                                      padding: EdgeInsets.all(5),
-                                    ),
-                                    Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            _lemari.name,
-                                            style: GoogleFonts.montserrat(
-                                                fontWeight: FontWeight.w600,
-                                                fontSize: 14),
-                                          ),
-                                          Text(
-                                            "Rp " + _lemari.harga,
-                                            style: GoogleFonts.montserrat(
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.w500),
-                                          ),
-                                        ]),
-                                  ],
-                                ))
-                              ],
-                            ),
-                          ),
-                        );
-                      }),
-                  GridView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              mainAxisSpacing: 10,
-                              crossAxisSpacing: 8,
-                              childAspectRatio: 3 / 3),
-                      padding: EdgeInsets.all(24),
-                      itemCount: kursi.length,
-                      itemBuilder: (context, index) {
-                        final _kursi = kursi[index];
-                        return InkWell(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => detailkursi(
-                                          furniture: _kursi,
-                                        )));
-                          },
-                          borderRadius: BorderRadius.circular(14),
-                          child: Card(
-                            color: Color.fromARGB(68, 154, 154, 154),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            child: Column(
-                              children: [
-                                Container(
-                                  margin: EdgeInsets.all(5),
-                                  height: 100,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
-                                    image: DecorationImage(
-                                      image: AssetImage(
-                                        _kursi.assets,
+                                  Expanded(
+                                      child: Row(
+                                    children: [
+                                      Container(
+                                        padding: EdgeInsets.all(5),
                                       ),
-                                      fit: BoxFit.contain,
+                                      Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              _lemari.name,
+                                              style: GoogleFonts.montserrat(
+                                                  fontWeight: FontWeight.w600,
+                                                  fontSize: 14),
+                                            ),
+                                            Text(
+                                              "Rp " + _lemari.harga,
+                                              style: GoogleFonts.montserrat(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w500),
+                                            ),
+                                          ]),
+                                    ],
+                                  ))
+                                ],
+                              ),
+                            ),
+                          );
+                        }),
+                    GridView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                mainAxisSpacing: 10,
+                                crossAxisSpacing: 8,
+                                childAspectRatio: 3 / 3),
+                        padding: EdgeInsets.all(24),
+                        itemCount: kursi.length,
+                        itemBuilder: (context, index) {
+                          final _kursi = kursi[index];
+                          return InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => detailkursi(
+                                            furniture: _kursi,
+                                          )));
+                            },
+                            borderRadius: BorderRadius.circular(14),
+                            child: Card(
+                              color: Color.fromARGB(68, 154, 154, 154),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    margin: EdgeInsets.all(5),
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                          _kursi.assets,
+                                        ),
+                                        fit: BoxFit.contain,
+                                      ),
                                     ),
                                   ),
-                                ),
-                                Expanded(
-                                    child: Row(
-                                  children: [
-                                    Container(
-                                      padding: EdgeInsets.all(5),
-                                    ),
-                                    Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            _kursi.name,
-                                            style: GoogleFonts.montserrat(
-                                                fontWeight: FontWeight.w600,
-                                                fontSize: 14),
-                                          ),
-                                          Text(
-                                            "Rp " + _kursi.harga,
-                                            style: GoogleFonts.montserrat(
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.w500),
-                                          ),
-                                        ]),
-                                  ],
-                                ))
-                              ],
-                            ),
-                          ),
-                        );
-                      }),
-                  GridView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                              mainAxisSpacing: 10,
-                              crossAxisSpacing: 8,
-                              childAspectRatio: 3 / 3),
-                      padding: EdgeInsets.all(24),
-                      itemCount: meja.length,
-                      itemBuilder: (context, index) {
-                        final _meja = meja[index];
-                        return InkWell(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => detailmeja(
-                                          furniture: _meja,
-                                        )));
-                          },
-                          borderRadius: BorderRadius.circular(14),
-                          child: Card(
-                            color: Color.fromARGB(68, 154, 154, 154),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(12),
-                            ),
-                            child: Column(
-                              children: [
-                                Container(
-                                  margin: EdgeInsets.all(5),
-                                  height: 100,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
-                                    image: DecorationImage(
-                                      image: AssetImage(
-                                        _meja.assets,
+                                  Expanded(
+                                      child: Row(
+                                    children: [
+                                      Container(
+                                        padding: EdgeInsets.all(5),
                                       ),
-                                      fit: BoxFit.contain,
+                                      Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              _kursi.name,
+                                              style: GoogleFonts.montserrat(
+                                                  fontWeight: FontWeight.w600,
+                                                  fontSize: 14),
+                                            ),
+                                            Text(
+                                              "Rp " + _kursi.harga,
+                                              style: GoogleFonts.montserrat(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w500),
+                                            ),
+                                          ]),
+                                    ],
+                                  ))
+                                ],
+                              ),
+                            ),
+                          );
+                        }),
+                    GridView.builder(
+                        shrinkWrap: true,
+                        physics: const NeverScrollableScrollPhysics(),
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                                crossAxisCount: 2,
+                                mainAxisSpacing: 10,
+                                crossAxisSpacing: 8,
+                                childAspectRatio: 3 / 3),
+                        padding: EdgeInsets.all(24),
+                        itemCount: meja.length,
+                        itemBuilder: (context, index) {
+                          final _meja = meja[index];
+                          return InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => detailmeja(
+                                            furniture: _meja,
+                                          )));
+                            },
+                            borderRadius: BorderRadius.circular(14),
+                            child: Card(
+                              color: Color.fromARGB(68, 154, 154, 154),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    margin: EdgeInsets.all(5),
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(20),
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                          _meja.assets,
+                                        ),
+                                        fit: BoxFit.contain,
+                                      ),
                                     ),
                                   ),
-                                ),
-                                Expanded(
-                                    child: Row(
-                                  children: [
-                                    Container(
-                                      padding: EdgeInsets.all(5),
-                                    ),
-                                    Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            _meja.name,
-                                            style: GoogleFonts.montserrat(
-                                                fontWeight: FontWeight.w600,
-                                                fontSize: 14),
-                                          ),
-                                          Text(
-                                            "Rp " + _meja.harga,
-                                            style: GoogleFonts.montserrat(
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.w500),
-                                          ),
-                                        ]),
-                                  ],
-                                ))
-                              ],
+                                  Expanded(
+                                      child: Row(
+                                    children: [
+                                      Container(
+                                        padding: EdgeInsets.all(5),
+                                      ),
+                                      Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              _meja.name,
+                                              style: GoogleFonts.montserrat(
+                                                  fontWeight: FontWeight.w600,
+                                                  fontSize: 14),
+                                            ),
+                                            Text(
+                                              "Rp " + _meja.harga,
+                                              style: GoogleFonts.montserrat(
+                                                  fontSize: 14,
+                                                  fontWeight: FontWeight.w500),
+                                            ),
+                                          ]),
+                                    ],
+                                  ))
+                                ],
+                              ),
                             ),
-                          ),
-                        );
-                      }),
-                ],
+                          );
+                        }),
+                  ],
+                ),
               ),
             ),
             // const populer(),
