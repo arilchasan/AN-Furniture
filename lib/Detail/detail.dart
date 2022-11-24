@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:project_pas/Cart/cartdb.dart';
+import 'package:project_pas/Cart/cartmodel.dart';
 import 'package:project_pas/Cart/cartview.dart';
 import 'package:project_pas/Cart/dbhelper.dart';
 import 'package:project_pas/Home/home.dart';
@@ -14,8 +16,6 @@ import 'package:provider/provider.dart';
 import 'package:quantity_input/quantity_input.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
-import '../Cart/cartprovider.dart';
-
 class Detailpage extends StatefulWidget {
   final FurnitureModel furniture;
   const Detailpage({Key? key, required this.furniture}) : super(key: key);
@@ -25,23 +25,40 @@ class Detailpage extends StatefulWidget {
 }
 
 class _DetailpageState extends State<Detailpage> {
-  // void _addToCart({
-  //   required String name,
-  //   required String assets,
-  //   required String harga,
-  //   required String desc,
-  // }) {
-  //   final addedShoe = FurnitureModel(
-  //     name: name,
-  //     assets: assets,
-  //     harga: harga,
-  //     desc: desc,
-  //   );
-  //   setState(() {
-  //     anFurniture.add(addedShoe);
-  //   });
-  // }
+  bool checkExist = false;
   int simpleIntInput = 1;
+
+  Future read() async {
+    checkExist = await FurnitureDatabase.instance.read(widget.furniture.name);
+    setState(() {});
+  }
+
+  Future addData() async {
+    var list;
+    list = FurnitureCart(
+      nama: widget.furniture.name,
+      asssets: widget.furniture.assets,
+      harga: widget.furniture.harga,
+    );
+    await FurnitureDatabase.instance.create(list);
+    setState(() {
+      checkExist = true;
+    });
+  }
+
+  Future deleteData() async {
+    await FurnitureDatabase.instance.delete(widget.furniture.name);
+    setState(() {
+      checkExist = false;
+    });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    read();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -131,7 +148,7 @@ class _DetailpageState extends State<Detailpage> {
                         child: Row(
                           children: [
                             Text(
-                              "Rp." + widget.furniture.harga,
+                              "Rp " + widget.furniture.harga,
                               textAlign: TextAlign.left,
                               style: GoogleFonts.montserrat(
                                 fontSize: 20,
@@ -143,6 +160,7 @@ class _DetailpageState extends State<Detailpage> {
                             ElevatedButton(
                               onPressed: () {
                                 sweatAlert(context);
+                                checkExist ? deleteData() : addData();
                               },
                               child: Text(
                                 ' Keranjang',
@@ -150,7 +168,7 @@ class _DetailpageState extends State<Detailpage> {
                                   fontSize: 13,
                                   fontWeight: FontWeight.w600,
                                   color: Color.fromARGB(246, 0, 0, 0),
-                                ),
+                                )
                               ),
                               style: ButtonStyle(
                                   fixedSize: MaterialStateProperty.all(

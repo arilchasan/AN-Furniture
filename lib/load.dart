@@ -37,8 +37,8 @@ class _LoadScreenState extends State<load> {
         backgroundColor: Color.fromARGB(255, 255, 255, 255),
         body: Center(
           child: Container(
-            width: 1000,
-            height: 700,
+            width: 700,
+            height: 400,
             child: Image.asset('assets/loading1.gif'),
           ),
         ),

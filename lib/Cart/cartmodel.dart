@@ -1,72 +1,46 @@
-// import 'package:project_pas/Models/models.dart';
+import 'package:project_pas/Models/models.dart';
+import 'package:flutter/cupertino.dart';
 
-// class FurnitureClass {
-//   static final List<String> values = [id, name, assets, harga];
+class FurnitureClass {
+  static final List<String> values = [
+    nama,
+    assets,
+    harga,
+  ];
 
-//   // table name
-//   static const cart_ = 'cart';
+  // table name
+  static const favorite_ = 'cart';
 
-//   // column
-//   static final String id = 'id';
-//   static final String name = 'nama';
-//   static final String assets = 'assets';
-//   static final String harga = 'harga';
+  // column
 
-//   static fromMap(Map<String, Object?> e) {}
-// }
+  static final String nama = 'nama';
+  static final String assets = 'assets';
+  static final String harga = 'harga';
+}
 
-// // column model
-// class FurnitureCart {
-//   final int? id;
-//   final String? name;
-//   final String? assets;
-//   final String? harga;
+// column model
+class FurnitureCart {
+  final String? nama;
+  final String? asssets;
+  final String? harga;
 
-//   FurnitureCart({
-//     this.id,
-//     this.name,
-//     required this.assets,
-//     this.harga,
-//   });
+  FurnitureCart({
+    required this.nama,
+    required this.asssets,
+    required this.harga,
+  });
 
-//   factory FurnitureCart.fromMap(Map<String, dynamic> json) {
-//     return FurnitureCart(
-//       id: json['id'] as int?,
-//       name: json['name'] as String?,
-//       assets: json['assets'] as String?,
-//       harga: json['harga'] as String?,
-//     );
-//   }
+  factory FurnitureCart.fromMap(Map<String, dynamic> json) {
+    return FurnitureCart(
+      nama: json['nama'] as String?,
+      asssets: json['assets'] as String?,
+      harga: json['harga'] as String?,
+    );
+  }
 
-//   Map<String, dynamic> toMap() => {
-//         FurnitureClass.id: id,
-//         FurnitureClass.name: name,
-//         FurnitureClass.assets: assets,
-//         FurnitureClass.harga: harga,
-//       };
-// }
-
-//  FurnitureModel fromJson(Map<String, Object?> json) => FurnitureModel(
-//       name: json[FurnitureClass.name] as String,
-//       assets: json[FurnitureClass.assets] as String, 
-//       harga: json[FurnitureClass.harga] as String, desc: '', 
-    
-//       );
-      
-//  Map<String, Object?> toJson() => {
-//         FurnitureClass.name:name,
-//         FurnitureClass.assets:assets,
-//         FurnitureClass.harga:harga,
-//       };
-
-//       FurnitureCart copy(
-//           {
-//           String? name,
-//           String? assets,
-//           String? harga,
-//           }) =>
-//       FurnitureCart(
-//           name: name ?? this.name,
-//           assets: assets ?? this.assets,
-//           harga: harga ?? this.harga,
-//           );
+  Map<String, dynamic> toMap() => {
+        FurnitureClass.nama: nama,
+        FurnitureClass.assets: asssets,
+        FurnitureClass.harga: harga,
+      };
+}

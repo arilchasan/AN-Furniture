@@ -5,6 +5,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:project_pas/Cart/cartview.dart';
+import 'package:project_pas/Cart/view.dart';
 import 'package:project_pas/Home/categories.dart';
 import 'package:project_pas/Home/home.dart';
 import 'package:project_pas/Models/models.dart';
@@ -21,7 +22,7 @@ class navbar extends StatefulWidget {
 class _homeState extends State<navbar> {
   List<Widget> _widgetOptions = <Widget>[
     home(),
-    cartview(),
+    viewCart(),
     Setting(),
   ];
 
