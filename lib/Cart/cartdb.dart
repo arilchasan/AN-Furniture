@@ -1,103 +1,88 @@
-// import 'package:project_pas/Cart/cartmodel.dart';
-// import 'package:project_pas/Models/models.dart';
-// import 'package:sqflite/sqflite.dart';
-// import 'package:path/path.dart';
+import 'package:path/path.dart';
+import 'package:project_pas/Cart/cartmodel.dart';
+import 'package:sqflite/sqflite.dart';
 
-// class Cartdb {
-//   static final Cartdb instance = Cartdb.init();
-//   static Database? _database;
+class FurnitureDatabase {
+  static final FurnitureDatabase instance = FurnitureDatabase.init();
 
-//   Cartdb.init();
+  static Database? _database;
 
-//   Future<Database> get database async {
-//     if (_database != null) return _database!;
+  FurnitureDatabase.init();
 
-//     _database = await _initDB('cart.db');
-//     return _database!;
-//   }
+  Future<Database> get database async {
+    if (_database != null) return _database!;
 
-//   Future<Database> _initDB(String filePath) async {
-//     final dbPath = await getDatabasesPath();
-//     final path = join(dbPath, filePath);
+    _database = await _initDB('cart.db');
+    return _database!;
+  }
 
-//     return await openDatabase(path, version: 1, onCreate: _createDB);
-//   }
+  Future<Database> _initDB(String filePath) async {
+    final dbPath = await getDatabasesPath();
+    final path = join(dbPath, filePath);
 
-//   Future _createDB(Database db, int version) async {
-//     final idType = 'INTEGER PRIMARY KEY AUTOINCREMENT';
-//     final textType = 'TEXT NOT NULL';
+    return await openDatabase(path, version: 1, onCreate: _createDB);
+  }
 
-//     await db.execute('''CREATE TABLE $cart (
-//     ${FurnitureClass.name} $idType,
-//     ${FurnitureClass.harga} $textType,
-//     ${FurnitureClass.assets} $textType,
-//     )''');
-//   }
+  // create database
+  Future _createDB(Database db, int version) async {
+    final idType = 'INTEGER PRIMARY KEY AUTOINCREMENT';
+    final textType = 'TEXT NOT NULL';
+    final intType = "INTEGER NOT NULL";
 
-//   Future<FurnitureClass> create(FurnitureClass news) async {
-//     final db = await instance.database;
+    // creating table
+    await db.execute('''CREATE TABLE ${FurnitureClass.favorite_}(
+    ${FurnitureClass.nama} $textType,
+    ${FurnitureClass.assets} $textType,
+    ${FurnitureClass.harga} $textType)''');
+  }
 
-//     final id = await db.insert(tableCart, news.toJson());
-//     return news.copy(id: id);
-//   }
+  // add data into dqatabase
+  Future<int> create(FurnitureCart model) async {
+    Database db = await instance.database;
+    final query = await db.insert(FurnitureClass.favorite_, model.toMap());
 
-//   Future<bool> read(String? name) async {
-//     final db = await instance.database;
+    return query;
+  }
 
-//     final maps = await db.query(
-//       tableCart,
-//       columns: FurnitureClass.values,
-//       where: '${FurnitureClass.name} = ?',
-//       whereArgs: [name],
-//     );
+  // to read and dsiplay the data from database
+  Future<List<FurnitureCart>> readAll() async {
+    Database db = await instance.database;
 
-//     if (maps.isNotEmpty) {
-//       return true;
-//     } else {
-//       return false;
-//     }
-//   }
+    final data = await db.query(FurnitureClass.favorite_);
+    List<FurnitureCart> result =
+        data.map((e) => FurnitureCart.fromMap(e)).toList();
 
-//   Future<List<FurnitureClass>> readAll() async {
-//     final db = await instance.database;
+    return result;
+  }
 
-//     final result = await db.query(tableCart);
+  Future<bool> read(String? title) async {
+    final db = await instance.database;
 
-//     return result.map((json) => FavoriteModel.fromJson(json)).toList();
-//   }
+    final maps = await db.query(
+      FurnitureClass.favorite_,
+      columns: FurnitureClass.values,
+      where: '${FurnitureClass.nama} = ?',
+      whereArgs: [title],
+    );
 
-//   delete(String? name) async {
-//     final db = await instance.database;
-//     try {
-//       await db.delete(
-//         tableCart,
-//         where: '${FurnitureClass.name} = ?',
-//         whereArgs: [name],
-//       );
-//     } catch (e) {
-//       print(e);
-//     }
-//   }
+    if (maps.isNotEmpty) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
-//   update(FurnitureClass favmodel) async {
-//     final db = await instance.database;
-//     try {
-//       db.rawUpdate('''
-//     UPDATE ${tableFavorite} 
-//     SET ${FurnitureClass.name} = ?, ${FurnitureClass.assets} = ?, ${FurnitureClass.harga} = ?, 
-//     WHERE ${FurnitureClass.name} = ?
-//     ''', [
-//         FurnitureClass.name,
-//         FurnitureClass.assets,
-//         FurnitureClass.harga,
-//       ]);
-//     } catch (e) {
-//       print('error: ' + e.toString());
-//     }
-//   }
+  delete(String namateam) async {
+    Database db = await instance.database;
 
-//   Future close() async {
-//     final db = await instance.database;
-//     db.close();
-//   }
-// }
+    await db.delete(FurnitureClass.favorite_,
+        where: "${FurnitureClass.nama} = ?", whereArgs: [namateam]);
+  }
+
+  // to delete data from database
+  deleteTable(String table) async {
+    Database db = await instance.database;
+
+    await db.execute("DROP TABLE IF EXSIST $table");
+  }
+}

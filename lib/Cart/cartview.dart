@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:project_pas/Cart/cartmodel.dart';
 import 'package:project_pas/Cart/chekout.dart';
 import 'package:project_pas/Models/models.dart';
 import 'package:project_pas/Models/models.dart';
@@ -22,8 +23,12 @@ class cartview extends StatefulWidget {
   State<cartview> createState() => _cartviewState();
 }
 
-class _cartviewState extends State<cartview> {
+class _cartviewState extends State<cartview> with SingleTickerProviderStateMixin{
+ 
   int simpleIntInput = 1;
+
+  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

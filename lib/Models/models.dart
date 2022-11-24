@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/widgets.dart';
 
 class FurnitureModel {
-  
   late final String name;
   final String assets;
   final String harga;
@@ -18,6 +17,8 @@ class FurnitureModel {
     required this.desc,
   });
 
+  
+
   // static FurnitureModel fromJson(Map<String, Object? json>) => FurnitureModel(
   //   name: json(FurnitureModel.name) as String,
   //   assets: json(FurnitureModel.assets) as String,
@@ -29,29 +30,6 @@ class FurnitureModel {
   //       FurnitureModel.name: name
   //     };
 }
-
-// class CartNotifier extends ChangeNotifier {
-//   List<FurnitureModel> selectedProducts = [];
-
-//   List<String> selectedProductsIds = [];
-
-//   List<String> selectedProductsPrice = [];
-
-//   addToCart({required FurnitureModel product}) {
-//     if (selectedProductsIds.contains(product.name)) {
-//       selectedProducts.remove(product);
-//       selectedProductsIds.remove(product.name);
-//       selectedProductsPrice.remove(product.harga);
-//       notifyListeners();
-//     } else {
-//       selectedProducts.add(product);
-//       selectedProductsIds.add(product.name);
-//       selectedProductsPrice.add(product.harga);
-//       notifyListeners();
-//     }
-//     ;
-//   }
-// }
 
 List<FurnitureModel> anFurniture = [
   FurnitureModel(
@@ -111,6 +89,7 @@ List<FurnitureModel> anFurniture = [
     harga: "999.000",
   ),
 ];
+
 
 //sofo model
 class SofaModel {
