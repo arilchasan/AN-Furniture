@@ -6,8 +6,8 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_pas/Cart/cartdb.dart';
 import 'package:project_pas/Cart/cartmodel.dart';
-import 'package:project_pas/Cart/cartview.dart';
-import 'package:project_pas/Cart/dbhelper.dart';
+
+
 import 'package:project_pas/Home/home.dart';
 import 'package:project_pas/Home/produk.dart';
 import 'package:project_pas/Models/models.dart';
@@ -162,14 +162,18 @@ class _DetailpageState extends State<Detailpage> {
                                 sweatAlert(context);
                                 checkExist ? deleteData() : addData();
                               },
-                              child: Text(
-                                ' Keranjang',
-                                style: GoogleFonts.montserrat(
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.w600,
-                                  color: Color.fromARGB(246, 0, 0, 0),
-                                )
-                              ),
+                              child: checkExist
+                                  ? Icon(
+                                      Icons.check,
+                                      color: Colors.green
+                                      ,
+                                    )
+                                  : Text(' Keranjang',
+                                      style: GoogleFonts.montserrat(
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w600,
+                                        color: Color.fromARGB(246, 0, 0, 0),
+                                      )),
                               style: ButtonStyle(
                                   fixedSize: MaterialStateProperty.all(
                                     const Size(150, 50),

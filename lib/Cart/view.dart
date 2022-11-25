@@ -2,10 +2,13 @@ import 'package:colours/colours.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:get/get.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:project_pas/Cart/cartdb.dart';
 import 'package:project_pas/Cart/cartmodel.dart';
 import 'package:project_pas/Cart/chekout.dart';
+import 'package:quantity_input/quantity_input.dart';
 
 class viewCart extends StatefulWidget {
   const viewCart({super.key});
@@ -20,7 +23,7 @@ class _viewCartState extends State<viewCart> {
   bool checkExist = false;
   bool isLoading = false;
 
-  double total = 12.000;
+  int simpleIntInput = 1;
 
   Future read() async {
     setState(() {
@@ -131,14 +134,13 @@ class _viewCartState extends State<viewCart> {
                                 ]),
                             child: Row(children: <Widget>[
                               Container(
-                                  width: 45,
+                                  width: 60,
                                   height: 50,
                                   margin: EdgeInsets.only(right: 30),
                                   child: Image.asset(
                                       dataListCart[index].asssets!)),
                               Column(
-                                crossAxisAlignment:
-                                    CrossAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: <Widget>[
                                   Container(
                                     height: 8,
@@ -151,7 +153,7 @@ class _viewCartState extends State<viewCart> {
                                   ),
                                   Container(
                                     margin: EdgeInsets.only(top: 2),
-                                    width: 150,
+                                    width: 140,
                                     child: Text(
                                       "Rp " + dataListCart[index].harga!,
                                       style: GoogleFonts.montserrat(
@@ -159,7 +161,6 @@ class _viewCartState extends State<viewCart> {
                                           fontWeight: FontWeight.w300),
                                     ),
                                   ),
-                                  Spacer(),
                                 ],
                               ),
                               IconButton(
@@ -168,7 +169,7 @@ class _viewCartState extends State<viewCart> {
                                 },
                                 icon: Icon(
                                   Icons.delete,
-                                  color: Colors.red,
+                                  color: Color.fromARGB(255, 0, 0, 0),
                                 ),
                               ),
                             ]));
