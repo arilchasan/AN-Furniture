@@ -3,11 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:project_pas/Cart/cartdb.dart';
 import 'package:project_pas/Home/home.dart';
 import 'package:project_pas/Models/models.dart';
 import 'package:project_pas/navbar.dart';
 import 'package:quantity_input/quantity_input.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
+
+import '../Cart/cartmodel.dart';
 
 class detaillemari extends StatefulWidget {
   final LemariModel furniture;
@@ -19,7 +22,40 @@ class detaillemari extends StatefulWidget {
 }
 
 class _detaillemariState extends State<detaillemari> {
-    int simpleIntInput = 1;
+    bool checkExist = false;
+  int simpleIntInput = 1;
+
+  Future read() async {
+    checkExist = await FurnitureDatabase.instance.read(widget.furniture.name);
+    setState(() {});
+  }
+
+  Future addData() async {
+    var list;
+    list = FurnitureCart(
+      nama: widget.furniture.name,
+      asssets: widget.furniture.assets,
+      harga: widget.furniture.harga,
+    );
+    await FurnitureDatabase.instance.create(list);
+    setState(() {
+      checkExist = true;
+    });
+  }
+
+  Future deleteData() async {
+    await FurnitureDatabase.instance.delete(widget.furniture.name);
+    setState(() {
+      checkExist = false;
+    });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    read();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -114,21 +150,26 @@ class _detaillemariState extends State<detaillemari> {
                             ElevatedButton(
                               onPressed: () {
                                 sweatAlert(context);
+                                checkExist ? deleteData() : addData();
                               },
-                              child: Text(
-                                ' Keranjang',
-                                style: GoogleFonts.montserrat(
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.w600,
-                                  color: Color.fromARGB(246, 0, 0, 0),
-                                ),
-                              ),
+                              child: checkExist
+                                  ? Icon(
+                                      Icons.check,
+                                      color: Colors.green
+                                      ,
+                                    )
+                                  : Text(' Keranjang',
+                                      style: GoogleFonts.montserrat(
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w600,
+                                        color: Color.fromARGB(246, 0, 0, 0),
+                                      )),
                               style: ButtonStyle(
                                   fixedSize: MaterialStateProperty.all(
                                     const Size(150, 50),
                                   ),
-                                  backgroundColor:
-                                      MaterialStateProperty.all(Colours.silver)),
+                                  backgroundColor: MaterialStateProperty.all(
+                                      Colours.lightGrey)),
                             )
                           ],
                         ),
