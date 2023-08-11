@@ -1,16 +1,5 @@
-# project_pas
+AN FURNITURE - Aplikasi Jual Furniture Sederhana
+Aplikasi AN FURNITURE adalah platform jual beli furniture yang sederhana dan efisien. Temukan berbagai jenis furnitur berkualitas melalui pencarian terstruktur berdasarkan kategori. Fitur kustomisasi memungkinkan Anda membuat pesanan sesuai preferensi. Manfaatkan keranjang belanja untuk mengelola pilihan Anda sebelum proses pembayaran yang aman. Buat pengalaman belanja furniture yang praktis dengan AN FURNITURE.
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+**Note:**
+- Aplikasi ini belum 100% sempurna karena aplikasi ini hanya design dengan sistem pembayaran menggunakan logika 
