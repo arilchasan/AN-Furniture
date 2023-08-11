@@ -1,6 +1,5 @@
 <p align="center">
-  [![ANFURNITURE.jpg](https://i.postimg.cc/3JDQCbs8/ANFURNITURE.jpg)](https://postimg.cc/ykBG7n6t)
----------------------------------------
+  <img src="https://i.postimg.cc/3JDQCbs8/ANFURNITURE.jpg" alt="Logo Northexpo">
 </p>
 
 
